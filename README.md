@@ -15,6 +15,7 @@ Sau đó tiến hành tạo 1 project trên Hetznet
 ![2022-09-05 (3)](https://user-images.githubusercontent.com/112862622/188422932-9c02c931-d7eb-4ca6-b596-fdd261e25723.png)
 ![2022-09-05 (4)](https://user-images.githubusercontent.com/112862622/188422968-fe1af85c-ec34-4995-ab22-768b5ac432d9.png)
 **Lưu ý: Cấu hình đề xuất của team near là 500GB SSD vì vậy bạn có thể sẽ cần mua thêm dung lượng. Cấu hình như hình trên là đủ để bạn bắt đầu
+
 ![image](https://user-images.githubusercontent.com/112862622/188423520-5d886c8e-266d-4c80-8141-ad3ba489485c.png)
 
 
@@ -37,35 +38,37 @@ Link: https://github.com/near/stakewars-iii
 1. Thử thách 1 (challenges 1)
 
 - Đầu tiên, hãy cập  nhật Linux cho vps của bạn
-sudo apt update && sudo apt upgrade -y
+
+       sudo apt update && sudo apt upgrade -y
 
 - Cài đặt dev tool, Node.js và npm
 
-    curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -  
-    sudo apt install build-essential nodejs
-    PATH="$PATH"
+       curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -  
+       sudo apt install build-essential nodejs
+       PATH="$PATH"
 
 - Cài đặt NEAR-CLI
 
-    sudo npm install -g near-cli
+      sudo npm install -g near-cli
 
 - Chọn mạng Shardnet cho Validator
 
-export NEAR_ENV=shardnet
+
+      export NEAR_ENV=shardnet
 
 --- Một số câu lệnh giúp bạn xem danh sách các validator
 
 - Các node đã được chấp thuận, các node này sẽ được tham gia xác thực nếu đủ lượng near trong pool
 
-    near proposals
+        near proposals
 
 - Danh sách các validator hiện tại
 
-    near validators current
+       near validators current
 
 - Các node đủ lượng near tối thiểu và chuẩn bị trở thành validator
 
-near validators next
+        near validators next
 
 2. Thử thách 2 (challenges 2)
 Khởi tạo 1 node(nearcore), tải về snapshot, syncing.
@@ -78,38 +81,39 @@ Khởi tạo 1 node(nearcore), tải về snapshot, syncing.
 
 - Tải và cài đặt dev tool
 
-sudo apt install -y git binutils-dev libcurl4-openssl-dev zlib1g-dev libdw-dev libiberty-dev cmake gcc g++ python3 docker.io protobuf-compiler libssl-dev pkg-config clang llvm cargo
+      sudo apt install -y git binutils-dev libcurl4-openssl-dev zlib1g-dev libdw-dev libiberty-dev cmake gcc g++ python3 docker.io protobuf-compiler libssl-dev pkg-config clang llvm cargo
 
--Cài đặt Python pip
+- Cài đặt Python pip
 
     sudo apt install python3-pip
+    
+   
+ - Đặt cấu hình
 
--Đặt cấu hình
-
-    USER_BASE_BIN=$(python3 -m site --user-base)/bin
-    export PATH="$USER_BASE_BIN:$PATH"
-
+      USER_BASE_BIN=$(python3 -m site --user-base)/bin
+      export PATH="$USER_BASE_BIN:$PATH"
+    
+    
 - Cài Building env
 
-sudo apt install clang build-essential make
+       sudo apt install clang build-essential make
 
-Cài đặt Rust & Cargo
+- Cài đặt Rust & Cargo
 
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-
+        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 - Khi cài sẽ có 3 lựa chọn hãy chọn mục 1
 
 ![2022-09-04 (12)](https://user-images.githubusercontent.com/112862622/188436045-e99647b8-5a79-41f3-9899-ef7e3ddd3483.png)
 
-Source
+- Source
 
     source $HOME/.cargo/env
 
 - Sao chép nearcore từ Github
 
-    git clone https://github.com/near/nearcore
-    cd nearcore
-    git fetch
+       git clone https://github.com/near/nearcore
+       cd nearcore
+       git fetch
 
 ![2022-09-04 (15)](https://user-images.githubusercontent.com/112862622/188436309-5f3c592c-70a9-4feb-9035-dcd6d218c17d.png)
 
@@ -121,14 +125,13 @@ Bạn có thể xem ví dụ ở hình phía trên
 
 - Compile nearcore binary
   
-  
-        cargo build -p neard --release --features shardnet
+       cargo build -p neard --release --features shardnet
   
   Bước này sẽ tốn chút thời gian, hãy nghỉ 1 chút và đợi nhé
   
-  - Initialize working directory
+- Initialize working directory
   
-       ./target/release/neard --home ~/.near init --chain-id shardnet --download-genesis
+        ./target/release/neard --home ~/.near init --chain-id shardnet --download-genesis
  - Khởi chạy Node
   
   Bước này node sẽ tải snapshot về sẽ tốn thời gian, vì vậy mình sẽ sử dụng tmux để chạy. Trong khi chờ mình có thể thực hiện các bước khác  (bạn có thể chạy mà không cần tmux cũng được). Xem hướng dẫn dùng tmux tại đây: https://www.hostinger.vn/huong-dan/tmux
@@ -144,12 +147,11 @@ Bạn có thể xem ví dụ ở hình phía trên
   
       near login
  Bạn sẽ nhận được 1 đường link, copy đường link đó vào trình duyệt chứa ví shardnet
+ 
   ![2022-09-05 (8)](https://user-images.githubusercontent.com/112862622/188439917-70078dda-4778-49d8-8ada-676b3e470aed.png)
 ![image](https://user-images.githubusercontent.com/112862622/188439967-34750ac2-476e-4312-9f6f-7a6d85f20562.png)
-![image](https://user-images.githubusercontent.com/112862622/188440011-06b1bc97-2eec-42d5-85ec-baf09f84c64c.png)
-![image](https://user-images.githubusercontent.com/112862622/188440085-fbe0d058-c3aa-45c5-b88e-1e7aa8d3fc27.png)
-![image](https://user-images.githubusercontent.com/112862622/188440171-fbaec3b9-50bf-4447-b0a4-3f4b2c54db15.png)
-Nếu có lỗi kết nối như hình trên là bình thường nhé
+
+Nếu có lỗi kết nối như là bình thường nhé
  Nhập địa chỉ ví của bạn để kiểm tra.
   ![image](https://user-images.githubusercontent.com/112862622/188440311-72e6c4f7-4683-4088-abf1-c6c51da37d3e.png)
 
