@@ -19,6 +19,8 @@ Sau đó tiến hành tạo 1 project trên Hetznet
 
 
 2. Tạo tài khoản shardnet
+
+
 Truy cập: https://wallet.shardnet.near.org/ để tạo tài khoản
 ![image](https://user-images.githubusercontent.com/112862622/188423843-562f954f-2096-410c-b771-19bac16db5be.png)
 ![image](https://user-images.githubusercontent.com/112862622/188423948-ffdd78e2-a3b1-4f0d-9e4d-1eb042c0b300.png)
@@ -33,7 +35,6 @@ Link: https://github.com/near/stakewars-iii
 **Các hướng dẫn ở các hướng dẫn đều rất chi tiết vì vậy tôi sẽ chỉ chụp lại những bước nếu cần thiết**
 
 1. Thử thách 1 (challenges 1)
-
 
 - Đầu tiên, hãy cập  nhật Linux cho vps của bạn
 sudo apt update && sudo apt upgrade -y
